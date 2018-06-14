@@ -31,7 +31,7 @@ which downloads the data from the online archive and returns it in a dictionary.
 
 .. code:: python
 
-    >>> data = pysweetcat.get_data()
+    >>> data = pyexoplaneteu.get_data()
 
 .. code::
 
@@ -46,7 +46,7 @@ and only conditionally download it again.
 
 .. code:: python
 
-    >>> data = pysweetcat.get_data()
+    >>> data = pyexoplaneteu.get_data()
 
 .. code::
 

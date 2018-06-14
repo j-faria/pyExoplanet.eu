@@ -113,5 +113,5 @@ details see the LICENSE_ file.
    :target: https://github.com/j-faria/pyExoplanet.eu/blob/master/LICENSE
 .. |Travis build| image:: https://travis-ci.org/j-faria/pyExoplanet.eu.svg?branch=master
     :target: https://travis-ci.org/j-faria/pyExoplanet.eu
-.. |PyPI version| image:: https://badge.fury.io/py/pyExoplanet.eu.svg
-    :target: https://badge.fury.io/py/pyExoplanet.eu
+.. |PyPI version| image:: https://badge.fury.io/py/pyExoplaneteu.svg
+    :target: https://badge.fury.io/py/pyExoplaneteu

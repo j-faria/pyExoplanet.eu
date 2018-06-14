@@ -3,8 +3,8 @@
 from setuptools import setup
 
 setup(name='pyExoplaneteu',
-      version='0.1',
-      description='A pure-Python package to download data from'\
+      version='1.0',
+      description='A pure-Python package to download data from '\
                   'the Extrasolar Planets Encyclopaedia',
       long_description=open('README.rst').read(),
       author='João Faria',

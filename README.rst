@@ -108,10 +108,10 @@ Copyright 2018 João Faria.
 details see the LICENSE_ file.
 
 .. _`Extrasolar Planets Encyclopaedia`: http://exoplanet.eu
-.. _License: https://github.com/j-faria/pySWEETCat/blob/master/LICENSE
+.. _License: https://github.com/j-faria/pyExoplanet.eu/blob/master/LICENSE
 .. |License MIT| image:: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
-   :target: https://github.com/j-faria/pySWEETCat/blob/master/LICENSE
-.. |Travis build| image:: https://travis-ci.org/j-faria/pySWEETCat.svg?branch=master
-    :target: https://travis-ci.org/j-faria/pySWEETCat
-.. |PyPI version| image:: https://badge.fury.io/py/pySWEETCat.svg
-    :target: https://badge.fury.io/py/pySWEETCat
+   :target: https://github.com/j-faria/pyExoplanet.eu/blob/master/LICENSE
+.. |Travis build| image:: https://travis-ci.org/j-faria/pyExoplanet.eu.svg?branch=master
+    :target: https://travis-ci.org/j-faria/pyExoplanet.eu
+.. |PyPI version| image:: https://badge.fury.io/py/pyExoplanet.eu.svg
+    :target: https://badge.fury.io/py/pyExoplanet.eu

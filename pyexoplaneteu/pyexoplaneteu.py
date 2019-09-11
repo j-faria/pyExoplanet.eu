@@ -15,7 +15,8 @@ download_link = 'http://exoplanet.eu/catalog/csv'
 # to get the directory where SWEET-Cat data will be stored
 from .config import get_data_dir
 
-def download_data():
+
+def download_data(verbose=True):
     """ Download exoplanet.eu data and save it to `exoplanetEU.csv` """
 
     with request.urlopen(download_link) as response:
@@ -25,7 +26,8 @@ def download_data():
     with open(local_file, 'wb') as f:
         f.write(data)
 
-    print(f'Saved exoplanet.eu data to {local_file}')
+    if verbose:
+        print(f'Saved exoplanet.eu data to {local_file}')
 
 
 def check_data_age():
@@ -48,7 +50,11 @@ class DataDict(OrderedDict):
         super(DataDict, self).__init__(self, *args, **kwargs)
 
     def __getitem__(self, key):
-        # allows to do data['key_nonan'] to get data['key'] without NaNs
+        # allows to do data['key_nonan'] to get data['key'] without NaNs as well
+        # as data[0] to get all columns for the 0th entry in the table
+        if isinstance(key, int):
+            return {k:v[key] for k, v in self.items()}
+
         if key.endswith('_nonan'):
             val = super().__getitem__(key.replace('_nonan',''))
             try:
@@ -98,7 +104,8 @@ class DataDict(OrderedDict):
             return newself
 
 
-def read_data():
+def read_data(verbose=True):
+
     def apply_float_to_column(data, key):
         data[key] = [float(v) if v!='' else math.nan for v in data[key]]
     
@@ -119,7 +126,8 @@ def read_data():
     data['name'] = data.pop('# name')
 
     nlab, nlin = len(labels), len(lines)
-    print(f'There are {nlab} columns with {nlin} entries each in `exoplanetEU.csv`')
+    if verbose:
+        print(f'There are {nlab} columns with {nlin} entries each in `exoplanetEU.csv`')
 
     data = DataDict(**data)
     data.move_to_end('name', last=False) # put this key back at the beginning,
@@ -132,21 +140,24 @@ def read_data():
     return data
 
 
-def get_data():
+def get_data(verbose=True):
     local_file = os.path.join(get_data_dir(), 'exoplanetEU.csv')
 
     if not os.path.exists(local_file):
-        print ('Downloading exoplanet.eu data')
-        download_data()
+        if verbose:
+            print ('Downloading exoplanet.eu data')
+        download_data(verbose=verbose)
     
     age = check_data_age()
     if age > 5:
-        print ('Data in `exoplanetEU.csv` is older than 5 days, downloading.')
-        download_data()
+        if verbose:
+            print ('Data in `exoplanetEU.csv` is older than 5 days, downloading.')
+        download_data(verbose=verbose)
     else:
-        print ('Data in `exoplanetEU.csv` is recent.')
+        if verbose:
+            print ('Data in `exoplanetEU.csv` is recent.')
 
-    data = read_data()
+    data = read_data(verbose=verbose)
     return data
 
 

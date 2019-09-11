@@ -1,7 +1,14 @@
 language: python
 python:
-  - "3.6"
+- '3.6'
 install:
-  - python setup.py install
+- python setup.py install
 script:
-  - py.test
+- py.test
+deploy:
+  provider: pypi
+  user: jfaria
+  password:
+    secure: Je6xmW3oh4TDbj7jHddV8IAyutdNWwtLyKYH31xt4iDqDcAlscraCCdoajkL7t0ee/AJ23BtbYHhYqLMXBCTaDDolnoB2Mdud45tEW0Q/b5ONQv7rydDWp7OU2avyqohDYyj+F7Trga+5AFNHyvzj7U97s0jgXh7WQWrqenr5e9hZlQp0TjcjS3xxM4V8UnMZtv2vpR+Os/c9fj4AJzPQ1NnJxbaaacFpHrINrtfEcstThVv4mb6Y2XjBRMmPKsDd9ZbyXn5680pKveIMazp6JZp89jAr5gI6k8OG9Qwyr2XnjUVFhPMHES3ESc0ArHcNHE/KH/85ghf9bFGMmcPYFI1oyOQUHxYm1EfkDnx/RYIhXJLMeIkyrIP1S8oo+rO/xLzhrTWjGN+RCLvAnIlgsfhf2fDadUTwvxRfFm4caKq5XjNRN/lKwkSnIqt/HuUOxWWg2P8Keizk3NhGsd68OGYLiVTKOCMMVO/89HoVde1qGJUb1tteqlDhfvx2DiVODCnt5xnnPYz4t/8Id9u5DUe4nEXYzEUHFLnlYtiOQbKoYfy1F2EQtam5dNYLWIKp+f2qHl2evK0WUTDzjrt/4wdAd8mMHZ4k5l15Fr24zSztLXwGTwAIlvJMa6Gn+rShAOKRLQtL6uwqSEh+2HscFNZnjSSt05MvoQ/ZhDfHDY=
+  on:
+    tags: true

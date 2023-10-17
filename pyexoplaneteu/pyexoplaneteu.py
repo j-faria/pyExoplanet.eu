@@ -114,10 +114,6 @@ def read_data():
     # column labels were read automatically by the csv.DictReader
     labels = list(data.keys())
 
-    # but the first label erroneously includes a "#"
-    labels[0] = 'name'
-    data['name'] = data.pop('# name')
-
     nlab, nlin = len(labels), len(lines)
     print(f'There are {nlab} columns with {nlin} entries each in `exoplanetEU.csv`')
 
